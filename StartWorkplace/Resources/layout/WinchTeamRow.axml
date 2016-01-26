@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="#ffffab40">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="35.0dp"
+        android:id="@+id/layStandardList"
+        android:layoutMode="opticalBounds">
+        <TextView
+            android:text="Лебёдка"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="140.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textWinchName" />
+        <TextView
+            android:text="Сотрудник"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="140.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textWinchEmploee" />
+        <TextView
+            android:text="Должность"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="140.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textWinchPosition" />
+    </LinearLayout>
+</RelativeLayout>

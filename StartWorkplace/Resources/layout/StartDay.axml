@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffa726"
+    android:focusable="false">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="38.5dp"
+        android:id="@+id/layoutHeader"
+        android:layout_marginBottom="7.0dp"
+        android:showDividers="end">
+        <TextView
+            android:text="Парадром"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="match_parent"
+            android:id="@+id/textParadrom"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:paddingTop="1dp"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp"
+            android:paddingLeft="1dp"
+            android:layout_width="wrap_content" />
+        <TextView
+            android:text="Дата"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="match_parent"
+            android:id="@+id/textData"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp" />
+        <TextView
+            android:text="Частота:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="match_parent"
+            android:id="@+id/textFreq"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:focusable="true" />
+        <EditText
+            android:layout_height="match_parent"
+            android:id="@+id/editFreq"
+            android:numeric="decimal"
+            android:layout_gravity="right"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dp"
+        android:id="@+id/layoutFlightDir">
+        <TextView
+            android:text="РП: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView1" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/spnFlightDir"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:gravity="top"
+            android:layout_gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="78.0dp"
+        android:id="@+id/layoutWinch">
+        <TextView
+            android:text="Лебёдка:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="114.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView2"
+            android:gravity="center" />
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="487.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/lvWinchTeam" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="39.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout1"
+            android:layout_marginBottom="0.0dp">
+            <ImageButton
+                android:src="@mipmap/ic_add"
+                android:layout_width="match_parent"
+                android:layout_height="35.5dp"
+                android:id="@+id/btnAddWinch"
+                android:layout_marginBottom="0.0dp"
+                android:scaleType="fitCenter"
+                android:background="@android:color/holo_orange_dark" />
+            <ImageButton
+                android:src="@drawable/del"
+                android:layout_width="match_parent"
+                android:layout_height="35.5dp"
+                android:id="@+id/btnDelWinch"
+                android:layout_marginTop="8.5dp"
+                android:background="@android:color/holo_orange_dark" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="101.5dp"
+        android:id="@+id/layoutStart">
+        <TextView
+            android:text="Стартоваякоманда"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="114.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView3" />
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="487.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/lvStartCommand" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearLayout2"
+            android:layout_width="39.5dp"
+            android:layout_height="match_parent">
+            <ImageButton
+                android:src="@mipmap/ic_add"
+                android:layout_width="match_parent"
+                android:layout_height="35.5dp"
+                android:layout_marginBottom="5.0dp"
+                android:id="@+id/btnStarterAdd"
+                android:scaleType="fitCenter"
+                android:background="@android:color/holo_orange_dark"
+                android:layout_marginTop="10.0dp" />
+            <ImageButton
+                android:src="@drawable/del"
+                android:id="@+id/btnStarterDel"
+                android:layout_width="match_parent"
+                android:layout_height="35.5dp"
+                android:layout_marginTop="8.5dp"
+                android:background="@android:color/holo_orange_dark" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="41.0dp"
+        android:id="@+id/layoutFooter" />
+</LinearLayout>
