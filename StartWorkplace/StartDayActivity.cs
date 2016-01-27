@@ -325,8 +325,6 @@ namespace StartWorkplace
 			var frequencyField = sender as EditText;
 			if (args.HasFocus)
 				frequencyField.InputType = Android.Text.InputTypes.Null;
-//			else
-//				frequencyField.InputType = Android.Text.InputTypes.NumberFlagDecimal;
 		}
 		#endregion
 	}
