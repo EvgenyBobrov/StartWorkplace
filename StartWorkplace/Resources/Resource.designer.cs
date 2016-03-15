@@ -87,14 +87,32 @@ namespace StartWorkplace
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07002a
-			public const int btnAddWinch = 2131165226;
+			// aapt resource value: 0x7f070048
+			public const int btnAddWinch = 2131165256;
 			
-			// aapt resource value: 0x7f07001c
-			public const int btnCancelWinchCommand = 2131165212;
+			// aapt resource value: 0x7f070060
+			public const int btnCadetList = 2131165280;
 			
-			// aapt resource value: 0x7f07002b
-			public const int btnDelWinch = 2131165227;
+			// aapt resource value: 0x7f07002f
+			public const int btnCancelReg = 2131165231;
+			
+			// aapt resource value: 0x7f07003a
+			public const int btnCancelWinchCommand = 2131165242;
+			
+			// aapt resource value: 0x7f070049
+			public const int btnDelWinch = 2131165257;
+			
+			// aapt resource value: 0x7f07005e
+			public const int btnPilotList = 2131165278;
+			
+			// aapt resource value: 0x7f070067
+			public const int btnRegister = 2131165287;
+			
+			// aapt resource value: 0x7f07002e
+			public const int btnRegisterPilot = 2131165230;
+			
+			// aapt resource value: 0x7f070068
+			public const int btnReport = 2131165288;
 			
 			// aapt resource value: 0x7f070009
 			public const int btnSelectKonchinka = 2131165193;
@@ -102,23 +120,50 @@ namespace StartWorkplace
 			// aapt resource value: 0x7f070004
 			public const int btnSelectNovoe = 2131165188;
 			
-			// aapt resource value: 0x7f07001b
-			public const int btnSelectWinchCommand = 2131165211;
+			// aapt resource value: 0x7f070039
+			public const int btnSelectWinchCommand = 2131165241;
 			
-			// aapt resource value: 0x7f07002e
-			public const int btnStarterAdd = 2131165230;
+			// aapt resource value: 0x7f07004f
+			public const int btnStartDay = 2131165263;
 			
-			// aapt resource value: 0x7f070015
-			public const int btnStarterCancel = 2131165205;
+			// aapt resource value: 0x7f07004c
+			public const int btnStarterAdd = 2131165260;
 			
-			// aapt resource value: 0x7f07002f
-			public const int btnStarterDel = 2131165231;
+			// aapt resource value: 0x7f070034
+			public const int btnStarterCancel = 2131165236;
 			
-			// aapt resource value: 0x7f070014
-			public const int btnStarterMemberAdd = 2131165204;
+			// aapt resource value: 0x7f07004d
+			public const int btnStarterDel = 2131165261;
 			
-			// aapt resource value: 0x7f070025
-			public const int editFreq = 2131165221;
+			// aapt resource value: 0x7f070033
+			public const int btnStarterMemberAdd = 2131165235;
+			
+			// aapt resource value: 0x7f07005f
+			public const int btnTandemList = 2131165279;
+			
+			// aapt resource value: 0x7f07002a
+			public const int cbRentFixer = 2131165226;
+			
+			// aapt resource value: 0x7f070026
+			public const int cbRentGlider = 2131165222;
+			
+			// aapt resource value: 0x7f070027
+			public const int cbRentRadio = 2131165223;
+			
+			// aapt resource value: 0x7f07002c
+			public const int cbRentTandem = 2131165228;
+			
+			// aapt resource value: 0x7f07001c
+			public const int dfGlider = 2131165212;
+			
+			// aapt resource value: 0x7f070022
+			public const int dfPhoneNum = 2131165218;
+			
+			// aapt resource value: 0x7f070019
+			public const int dfSign = 2131165209;
+			
+			// aapt resource value: 0x7f070043
+			public const int editFreq = 2131165251;
 			
 			// aapt resource value: 0x7f070003
 			public const int frameLayout1 = 2131165187;
@@ -132,17 +177,20 @@ namespace StartWorkplace
 			// aapt resource value: 0x7f07000a
 			public const int frameLayout4 = 2131165194;
 			
-			// aapt resource value: 0x7f070031
-			public const int layStandardList = 2131165233;
+			// aapt resource value: 0x7f07000d
+			public const int layErrorDataLayer = 2131165197;
 			
-			// aapt resource value: 0x7f070026
-			public const int layoutFlightDir = 2131165222;
+			// aapt resource value: 0x7f070050
+			public const int layStandardList = 2131165264;
 			
-			// aapt resource value: 0x7f070030
-			public const int layoutFooter = 2131165232;
+			// aapt resource value: 0x7f070044
+			public const int layoutFlightDir = 2131165252;
 			
-			// aapt resource value: 0x7f070021
-			public const int layoutHeader = 2131165217;
+			// aapt resource value: 0x7f07004e
+			public const int layoutFooter = 2131165262;
+			
+			// aapt resource value: 0x7f07003f
+			public const int layoutHeader = 2131165247;
 			
 			// aapt resource value: 0x7f070007
 			public const int layoutKonchinka = 2131165191;
@@ -153,98 +201,206 @@ namespace StartWorkplace
 			// aapt resource value: 0x7f070002
 			public const int layoutNovoe = 2131165186;
 			
-			// aapt resource value: 0x7f07002c
-			public const int layoutStart = 2131165228;
+			// aapt resource value: 0x7f07004a
+			public const int layoutStart = 2131165258;
 			
-			// aapt resource value: 0x7f070028
-			public const int layoutWinch = 2131165224;
+			// aapt resource value: 0x7f070046
+			public const int layoutWinch = 2131165254;
 			
-			// aapt resource value: 0x7f07000d
-			public const int linearLayout1 = 2131165197;
+			// aapt resource value: 0x7f070030
+			public const int linearLayout1 = 2131165232;
 			
-			// aapt resource value: 0x7f070010
-			public const int linearLayout2 = 2131165200;
+			// aapt resource value: 0x7f070020
+			public const int linearLayout2 = 2131165216;
 			
-			// aapt resource value: 0x7f070013
-			public const int linearLayout3 = 2131165203;
+			// aapt resource value: 0x7f070025
+			public const int linearLayout3 = 2131165221;
 			
 			// aapt resource value: 0x7f07000c
 			public const int linearLayout4 = 2131165196;
 			
-			// aapt resource value: 0x7f07002d
-			public const int lvStartCommand = 2131165229;
-			
 			// aapt resource value: 0x7f070029
-			public const int lvWinchTeam = 2131165225;
+			public const int linearLayout5 = 2131165225;
 			
-			// aapt resource value: 0x7f07000f
-			public const int spnAddStarterEmploee = 2131165199;
-			
-			// aapt resource value: 0x7f070012
-			public const int spnAddStarterPos = 2131165202;
-			
-			// aapt resource value: 0x7f070027
-			public const int spnFlightDir = 2131165223;
-			
-			// aapt resource value: 0x7f070017
-			public const int spnSelectWinch = 2131165207;
+			// aapt resource value: 0x7f07002b
+			public const int linearLayout6 = 2131165227;
 			
 			// aapt resource value: 0x7f07001a
-			public const int spnSelectWinchAssistant = 2131165210;
-			
-			// aapt resource value: 0x7f070018
-			public const int spnSelectWinchOperator = 2131165208;
-			
-			// aapt resource value: 0x7f070023
-			public const int textData = 2131165219;
+			public const int llGliderInfoReg = 2131165210;
 			
 			// aapt resource value: 0x7f07001d
-			public const int textError = 2131165213;
+			public const int llLevel = 2131165213;
 			
-			// aapt resource value: 0x7f070016
-			public const int textErrorAddStarter = 2131165206;
+			// aapt resource value: 0x7f070014
+			public const int llOrderNum = 2131165204;
+			
+			// aapt resource value: 0x7f070062
+			public const int llPilotList = 2131165282;
+			
+			// aapt resource value: 0x7f07000f
+			public const int llPilotListRow = 2131165199;
+			
+			// aapt resource value: 0x7f07002d
+			public const int llRegPilotTBar = 2131165229;
+			
+			// aapt resource value: 0x7f070023
+			public const int llRent = 2131165219;
+			
+			// aapt resource value: 0x7f070024
+			public const int llRentLeft = 2131165220;
+			
+			// aapt resource value: 0x7f070028
+			public const int llRentRight = 2131165224;
+			
+			// aapt resource value: 0x7f070017
+			public const int llSignReg = 2131165207;
+			
+			// aapt resource value: 0x7f070064
+			public const int llTandemList = 2131165284;
+			
+			// aapt resource value: 0x7f070061
+			public const int llWorkList = 2131165281;
+			
+			// aapt resource value: 0x7f070054
+			public const int llWorkListHeader = 2131165268;
+			
+			// aapt resource value: 0x7f070055
+			public const int llWorkListHeaderLeft = 2131165269;
+			
+			// aapt resource value: 0x7f070058
+			public const int llWorkListHeaderRight = 2131165272;
+			
+			// aapt resource value: 0x7f07005c
+			public const int llWorkListMain = 2131165276;
+			
+			// aapt resource value: 0x7f070066
+			public const int llWorkListTBar = 2131165286;
+			
+			// aapt resource value: 0x7f07005d
+			public const int llWorkListTab = 2131165277;
+			
+			// aapt resource value: 0x7f07005b
+			public const int llWorkingListFrame = 2131165275;
+			
+			// aapt resource value: 0x7f070063
+			public const int lvPilotTable = 2131165283;
+			
+			// aapt resource value: 0x7f07004b
+			public const int lvStartCommand = 2131165259;
+			
+			// aapt resource value: 0x7f070065
+			public const int lvTandemTable = 2131165285;
+			
+			// aapt resource value: 0x7f070047
+			public const int lvWinchTeam = 2131165255;
+			
+			// aapt resource value: 0x7f070031
+			public const int spnAddStarterEmploee = 2131165233;
+			
+			// aapt resource value: 0x7f070032
+			public const int spnAddStarterPos = 2131165234;
+			
+			// aapt resource value: 0x7f070045
+			public const int spnFlightDir = 2131165253;
+			
+			// aapt resource value: 0x7f07001f
+			public const int spnRegLevel = 2131165215;
+			
+			// aapt resource value: 0x7f070036
+			public const int spnSelectWinch = 2131165238;
+			
+			// aapt resource value: 0x7f070038
+			public const int spnSelectWinchAssistant = 2131165240;
+			
+			// aapt resource value: 0x7f070037
+			public const int spnSelectWinchOperator = 2131165239;
+			
+			// aapt resource value: 0x7f070041
+			public const int textData = 2131165249;
+			
+			// aapt resource value: 0x7f07003b
+			public const int textError = 2131165243;
+			
+			// aapt resource value: 0x7f070035
+			public const int textErrorAddStarter = 2131165237;
+			
+			// aapt resource value: 0x7f07000e
+			public const int textErrorDataLayer = 2131165198;
 			
 			// aapt resource value: 0x7f070001
 			public const int textFilghts = 2131165185;
 			
-			// aapt resource value: 0x7f070024
-			public const int textFreq = 2131165220;
+			// aapt resource value: 0x7f070042
+			public const int textFreq = 2131165250;
 			
 			// aapt resource value: 0x7f07000b
 			public const int textKonchinka = 2131165195;
 			
-			// aapt resource value: 0x7f07001e
-			public const int textListRow = 2131165214;
+			// aapt resource value: 0x7f07003c
+			public const int textListRow = 2131165244;
 			
 			// aapt resource value: 0x7f070006
 			public const int textNovoe = 2131165190;
 			
-			// aapt resource value: 0x7f070022
-			public const int textParadrom = 2131165218;
+			// aapt resource value: 0x7f070040
+			public const int textParadrom = 2131165248;
 			
-			// aapt resource value: 0x7f07001f
-			public const int textStarterEmploee = 2131165215;
+			// aapt resource value: 0x7f07003d
+			public const int textStarterEmploee = 2131165245;
 			
-			// aapt resource value: 0x7f070020
-			public const int textStarterPosition = 2131165216;
+			// aapt resource value: 0x7f07003e
+			public const int textStarterPosition = 2131165246;
 			
-			// aapt resource value: 0x7f07000e
-			public const int textView1 = 2131165198;
+			// aapt resource value: 0x7f070015
+			public const int textView1 = 2131165205;
+			
+			// aapt resource value: 0x7f070018
+			public const int textView2 = 2131165208;
+			
+			// aapt resource value: 0x7f070021
+			public const int textView3 = 2131165217;
+			
+			// aapt resource value: 0x7f07001e
+			public const int textView8 = 2131165214;
+			
+			// aapt resource value: 0x7f07001b
+			public const int textViewGlider = 2131165211;
+			
+			// aapt resource value: 0x7f070052
+			public const int textWinchEmploee = 2131165266;
+			
+			// aapt resource value: 0x7f070051
+			public const int textWinchName = 2131165265;
+			
+			// aapt resource value: 0x7f070053
+			public const int textWinchPosition = 2131165267;
+			
+			// aapt resource value: 0x7f070016
+			public const int txtOrdNum = 2131165206;
+			
+			// aapt resource value: 0x7f070012
+			public const int txtPilotGlider = 2131165202;
+			
+			// aapt resource value: 0x7f070010
+			public const int txtPilotNum = 2131165200;
 			
 			// aapt resource value: 0x7f070011
-			public const int textView2 = 2131165201;
+			public const int txtPilotSign = 2131165201;
 			
-			// aapt resource value: 0x7f070019
-			public const int textView3 = 2131165209;
+			// aapt resource value: 0x7f070013
+			public const int txtPilotStatus = 2131165203;
 			
-			// aapt resource value: 0x7f070033
-			public const int textWinchEmploee = 2131165235;
+			// aapt resource value: 0x7f07005a
+			public const int txtWorkListData = 2131165274;
 			
-			// aapt resource value: 0x7f070032
-			public const int textWinchName = 2131165234;
+			// aapt resource value: 0x7f070059
+			public const int txtWorkListFreq = 2131165273;
 			
-			// aapt resource value: 0x7f070034
-			public const int textWinchPosition = 2131165236;
+			// aapt resource value: 0x7f070056
+			public const int txtWorkListParadrom = 2131165270;
+			
+			// aapt resource value: 0x7f070057
+			public const int txtxWorkListFM = 2131165271;
 			
 			static Id()
 			{
@@ -263,22 +419,31 @@ namespace StartWorkplace
 			public const int Main = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int SelectStarterWorker = 2130968577;
+			public const int PilotListRow = 2130968577;
 			
 			// aapt resource value: 0x7f040002
-			public const int SelectWinchCommand = 2130968578;
+			public const int RegisterPilotForm = 2130968578;
 			
 			// aapt resource value: 0x7f040003
-			public const int SimpleListRow = 2130968579;
+			public const int SelectStarterWorker = 2130968579;
 			
 			// aapt resource value: 0x7f040004
-			public const int StartCommandTableRow = 2130968580;
+			public const int SelectWinchCommand = 2130968580;
 			
 			// aapt resource value: 0x7f040005
-			public const int StartDay = 2130968581;
+			public const int SimpleListRow = 2130968581;
 			
 			// aapt resource value: 0x7f040006
-			public const int WinchTeamRow = 2130968582;
+			public const int StartCommandTableRow = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int StartDay = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int WinchTeamRow = 2130968584;
+			
+			// aapt resource value: 0x7f040009
+			public const int WorkingList = 2130968585;
 			
 			static Layout()
 			{

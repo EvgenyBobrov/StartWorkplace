@@ -29,6 +29,7 @@ namespace StartWorkplace
 
 		private WorkingDay _formContext = null;
 
+		#region Методы формы
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -78,7 +79,6 @@ namespace StartWorkplace
 
 			#region Кнопки
 			var buttonAddWinch = FindViewById<ImageButton>(Resource.Id.btnAddWinch);
-			//buttonAddWinch.SetImageResource (Resource.Drawable.Add);
 			var buttonDelWinch = FindViewById<ImageButton>(Resource.Id.btnDelWinch);
 
 			buttonAddWinch.Click += delegate
@@ -108,16 +108,16 @@ namespace StartWorkplace
 			{
 				OnDelStartCrewMember();	
 			};
+
+			var buttonStartDay = FindViewById<Button>(Resource.Id.btnStartDay);
+			buttonStartDay.Click += delegate 
+			{
+				OnStartDay();	
+			};
+
 			#endregion 
-		}
 
-		#region Методы формы
-		protected override void OnStart ()
-		{
-			base.OnStart ();
-			ShowData ();
 		}
-
 
 		public override void OnServiceConnected ()
 		{
@@ -137,25 +137,42 @@ namespace StartWorkplace
 					}
 				}
 
-				var selectWinchContext = service.GetInfo (DataKeeperKeys.SELECTED_WINCH_TEAM);
-				if (selectWinchContext != null)
+				if (CreatorKey == DataKeeperKeys.SELECTED_WINCH_TEAM)
 				{
-					var winchCommand = selectWinchContext.Data as WinchCommand;
-					if (winchCommand != null)
+					var selectWinchContext = service.GetInfo (DataKeeperKeys.SELECTED_WINCH_TEAM);
+					if (selectWinchContext != null)
 					{
-						_formContext.WinchCommands.Add (winchCommand);
+						var winchCommand = selectWinchContext.Data as WinchCommand;
+						if (winchCommand != null)
+						{
+							_formContext.WinchCommands.Add (winchCommand);
+						}
+						DeleteDataFromStorage (DataKeeperKeys.SELECTED_WINCH_TEAM);
 					}
-					DeleteDataFromStorage (DataKeeperKeys.SELECTED_WINCH_TEAM);
 				}
 
-				var addedStartWorkerContext = service.GetInfo (DataKeeperKeys.ADDED_STARTER_WORKER);
-				if (addedStartWorkerContext != null)
+				if (CreatorKey == DataKeeperKeys.ADDED_STARTER_WORKER)
 				{
-					var addedStartWorker = addedStartWorkerContext.Data as StartWorker;
-					if (addedStartWorker != null)
-						_formContext.StartCommand.Add (addedStartWorker);
+					var addedStartWorkerContext = service.GetInfo (DataKeeperKeys.ADDED_STARTER_WORKER);
+					if (addedStartWorkerContext != null)
+					{
+						var addedStartWorker = addedStartWorkerContext.Data as StartWorker;
+						if (addedStartWorker != null)
+							_formContext.StartCommand.Add (addedStartWorker);
 	
-					DeleteDataFromStorage (DataKeeperKeys.ADDED_STARTER_WORKER);
+						DeleteDataFromStorage (DataKeeperKeys.ADDED_STARTER_WORKER);
+					}
+				}
+					
+				if (CreatorKey == DataKeeperKeys.CURRENT_WORK_DAY)
+				{
+					var workingDayContext = service.GetInfo (DataKeeperKeys.CURRENT_WORK_DAY);
+					if (workingDayContext != null)
+					{
+						var workingDay = workingDayContext.Data as WorkingDay;
+						if (workingDay != null)
+							_formContext = workingDay;
+					}
 				}
 
 				ShowData ();
@@ -164,7 +181,7 @@ namespace StartWorkplace
 
 		private void ShowData()
 		{
-			if (_formContext != null )
+			if (_formContext != null)
 			{
 				var emploeeList = new List<string> (){ string.Empty };
 				var emploees = _dataAccessor.GetEmploees ();
@@ -177,21 +194,21 @@ namespace StartWorkplace
 					_frequencyField.Text = _formContext.Frequency.ToString ();
 
 				var flightDirAdapter = new ArrayAdapter<string> (this, 
-					Resource.Layout.SimpleListRow, 
-					emploeeList.ToArray());
+					                       Resource.Layout.SimpleListRow, 
+					                       emploeeList.ToArray ());
 				_cmbFlightDirector.Adapter = flightDirAdapter;
 			
 
 				if (_formContext.FlightDirector != null)
 				{
-					var pos = emploees.FindIndex(e => e.CallSing == _formContext.FlightDirector.CallSing);
-					_cmbFlightDirector.SetSelection(pos+1);
+					var pos = emploees.FindIndex (e => e.CallSing == _formContext.FlightDirector.CallSing);
+					_cmbFlightDirector.SetSelection (pos + 1);
 				}
 
 				//var flightScheduleItem = WorkingContext.Data as FlightScheduleItem;
 				if (_formContext.FlightScheduleItem != null)
 				{
-					_flightField.Text = string.Format ("Парадром: {0} \t Поле: {1}",
+					_flightField.Text = string.Format ("Парадром: {0}     Поле: {1}",
 						_formContext.FlightScheduleItem.Paradrom.Name, 
 						_formContext.FlightScheduleItem.CurrentField.Name);
 
@@ -203,16 +220,15 @@ namespace StartWorkplace
 				var winchTableItems = new List<WinchTeamViewTableRow> ();
 				foreach (var item in _formContext.WinchCommands)
 				{
-					winchTableItems.Add (new WinchTeamViewTableRow ()
-					{ 
+					winchTableItems.Add (new WinchTeamViewTableRow () { 
 						EmploeeName = item.WinchMaster.CallSing, 
 						Position = EnumWinchEmploeePosition.WinchMaster, 
-						WinchName = item.Winch.Name });
+						WinchName = item.Winch.Name
+					});
 
 					if (item.WinchAssistant != null)
 					{
-						winchTableItems.Add (new WinchTeamViewTableRow ()
-						{ 
+						winchTableItems.Add (new WinchTeamViewTableRow () { 
 							EmploeeName = item.WinchAssistant.CallSing, 
 							Position = EnumWinchEmploeePosition.WinchAssistant, 
 							WinchName = item.Winch.Name 
@@ -225,14 +241,17 @@ namespace StartWorkplace
 				var startWorkers = new List<StartCommandViewTableRow> ();
 				foreach (var startWorker in _formContext.StartCommand)
 				{
-					startWorkers.Add (new StartCommandViewTableRow()
-					{
+					startWorkers.Add (new StartCommandViewTableRow () {
 						Emploee = startWorker.Emploee,
 						Position = startWorker.Position,
 						Selected = false
 					});
 				}
 				_startCommandListView.Adapter = new StartCommandAdapter (this, startWorkers, _startCommandListView);
+			}
+			else
+			{
+				_flightField.Text = "TEST";
 			}
 		}
 
@@ -274,10 +293,19 @@ namespace StartWorkplace
 					_formContext = formContext;
 				else
 					_formContext = new WorkingDay ();
-				
 			}
 
 			return currentContext;
+		}
+
+		protected override void InitForm ()
+		{
+			if (WorkingContext != null && _formContext == null)
+			{
+				_formContext = WorkingContext.Data as WorkingDay;
+				if (_formContext != null)
+					ShowData ();
+			}
 		}
 		#endregion
 
@@ -326,6 +354,18 @@ namespace StartWorkplace
 			if (args.HasFocus)
 				frequencyField.InputType = Android.Text.InputTypes.Null;
 		}
+
+		private void OnStartDay()
+		{
+			_dataAccessor.SaveWorkingDay (_formContext);
+			var openContext = new WorkingContext(){ServiceConnection = null, Data = _formContext};
+			SaveDataToStorage (DataKeeperKeys.CURRENT_WORK_DAY, openContext);
+			var intent = new Intent(this, typeof(WorkListActivity));
+			intent.PutExtra (CREATOR_BUNDLE_KEY, DataKeeperKeys.CURRENT_WORK_DAY);
+			StartActivity(intent);
+
+		}
+
 		#endregion
 	}
 }

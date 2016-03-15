@@ -68,15 +68,26 @@ namespace StartWorkplace
 			var selectKonchinka = FindViewById<Button> (Resource.Id.btnSelectKonchinka);
 			selectKonchinka.Enabled = false;
 
+			if (!string.IsNullOrEmpty (_dataAccessor.GetErrorMessage ()))
+			{
+				FindViewById<TextView> (Resource.Id.textErrorDataLayer)
+					.Text = _dataAccessor.GetErrorMessage ();
+				return;
+			}
 			var schedule = _dataAccessor.GetSchedule (DateTime.Today);
-			// Возьмём первый лётный день из расписания
-			var scheduleDay = schedule.OrderBy (s => s.Date).First();
-			foreach (var flightScheduleItem in scheduleDay.Paradroms)
+			if (!string.IsNullOrEmpty (_dataAccessor.GetErrorMessage ()))
+			{
+				FindViewById<TextView> (Resource.Id.textErrorDataLayer)
+					.Text = _dataAccessor.GetErrorMessage ();
+				return;
+			}
+
+			foreach (var flightScheduleItem in schedule)
 			{
 				if (flightScheduleItem.Paradrom.EnumParadrom == EnumParadrom.Novoe)
 				{
 					selectNovoe.Enabled = true;
-					_infoNovoe.Text = "Объявлены полёты " + scheduleDay.Date.ToString ("dd.MM.yyyy")
+					_infoNovoe.Text = "Объявлены полёты " + flightScheduleItem.FlightDate.ToString ("dd.MM.yyyy")
 						+ System.Environment.NewLine + "Поле " + flightScheduleItem.CurrentField.Name;
 					_selectedScheduleItems.Add (flightScheduleItem);
 				}
@@ -84,7 +95,7 @@ namespace StartWorkplace
 				if (flightScheduleItem.Paradrom.EnumParadrom == EnumParadrom.Konchinka)
 				{
 					selectNovoe.Enabled = true;
-					_infoKonchinka.Text = "Объявлены полёты " + scheduleDay.Date.ToString ("dd.MM.yyyy");
+					_infoKonchinka.Text = "Объявлены полёты " + flightScheduleItem.FlightDate.ToString ("dd.MM.yyyy");
 					_selectedScheduleItems.Add (flightScheduleItem);
 				}
 			}
@@ -100,14 +111,20 @@ namespace StartWorkplace
 			
 			if (_dataAccessor.IsDayOnParadromStarted (flightScheduleItem.Paradrom, flightScheduleItem.FlightDate))
 			{
-				// Показать главный экран
-				return;
-			} else
+				var workingDay = _dataAccessor.ReadWorkingDay (flightScheduleItem.Paradrom, flightScheduleItem.FlightDate);
+				var openContext = new WorkingContext(){ServiceConnection = null, Data = workingDay};
+				SaveDataToStorage (DataKeeperKeys.CURRENT_WORK_DAY, openContext);
+				var intent = new Intent(this, typeof(WorkListActivity));
+				intent.PutExtra (CREATOR_BUNDLE_KEY, DataKeeperKeys.CURRENT_WORK_DAY);
+				StartActivity(intent);
+			} 
+			else
 			{
 				// Показать экран начала рабочего дня
 				var openContext = new WorkingContext(){ServiceConnection = null, Data = flightScheduleItem};
 				SaveDataToStorage (DataKeeperKeys.SELECTED_SCHEDULE_ITEM, openContext);
 				var intent = new Intent(this, typeof(StartDayActivity));
+				intent.PutExtra (CREATOR_BUNDLE_KEY, DataKeeperKeys.SELECTED_SCHEDULE_ITEM);
 				StartActivity(intent);
 			}
 		}

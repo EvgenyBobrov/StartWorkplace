@@ -58,6 +58,10 @@
     <Compile Include="Controls\WinchTeamAdapter.cs" />
     <Compile Include="Controls\StartCommandAdapter.cs" />
     <Compile Include="Controls\StartCommandViewTableRow.cs" />
+    <Compile Include="WorkListActivity.cs" />
+    <Compile Include="Controls\PilotListTableRow.cs" />
+    <Compile Include="Controls\PilotTableAdapter.cs" />
+    <Compile Include="RegisterPilotActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -87,6 +91,9 @@
     <AndroidResource Include="Resources\layout\SelectStarterWorker.axml" />
     <AndroidResource Include="Resources\layout\StartCommandTableRow.axml" />
     <AndroidResource Include="Resources\layout\SimpleListRow.axml" />
+    <AndroidResource Include="Resources\layout\WorkingList.axml" />
+    <AndroidResource Include="Resources\layout\PilotListRow.axml" />
+    <AndroidResource Include="Resources\layout\RegisterPilotForm.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

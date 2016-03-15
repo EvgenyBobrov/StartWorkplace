@@ -165,5 +165,13 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
-        android:id="@+id/layoutFooter" />
+        android:id="@+id/layoutFooter"
+        android:gravity="right">
+        <Button
+            android:text="Начать работу"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btnStartDay"
+            android:background="@android:color/holo_orange_dark" />
+    </LinearLayout>
 </LinearLayout>

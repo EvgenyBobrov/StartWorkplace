@@ -14,6 +14,8 @@ namespace KeeperData
 	[Activity (Label = "KeepingDataContextActivity")]			
 	public class KeepingDataContextActivity : Activity
 	{
+		protected const string CREATOR_BUNDLE_KEY = "ActivityCreator";
+
 		#region Переменные класса
 		protected KeeperDataServiceConnection _serviceConnection;
 
@@ -26,6 +28,10 @@ namespace KeeperData
 		protected string ActivityKey { get; set;}
 
 		protected IDataAccessor _dataAccessor;
+
+		/// <summary> Причина создания формы </summary>
+		protected string CreatorKey { get; set;}
+
 		#endregion
 
 
@@ -34,8 +40,9 @@ namespace KeeperData
 		{
 			base.OnCreate (savedInstanceState);
 
+			CreatorKey = Intent.GetStringExtra(CREATOR_BUNDLE_KEY);
+
 			// restore from connection there was a configuration change, such as a device rotation
-			//WorkingContext = LastNonConfigurationInstance as WorkingContext;
 			var workingContext = LastNonConfigurationInstance as WorkingContext;
 			// Если удалось поднять контекст из конфигурации (т.е. видимо изменили ориентацию)
 			if (workingContext != null)
@@ -50,12 +57,16 @@ namespace KeeperData
 			}*/
 
 			_dataAccessor = new DataAccessorFactory ().GetDataAccessor ();
-
+			var errorMessage = _dataAccessor.GetErrorMessage ();
 		}
 
 		protected override void OnStart ()
 		{
 			base.OnStart ();
+
+			// Обновление элементов конечной формы.
+			// нужно перегрузить в потомке
+			InitForm ();
 
 			//Log.Debug ("MainActivity", "OnStart" );
 
@@ -142,6 +153,14 @@ namespace KeeperData
 		{
 			return new WorkingContext ();
 		}
+
+		/// <summary> Вызывается в OnCreate(). 
+		/// Используется для восстановления
+		/// после смены ориентации экрана </summary>
+		protected virtual void InitForm()
+		{
+		}
+
 		#endregion
 
 		#region Protected-методы
@@ -171,6 +190,30 @@ namespace KeeperData
 				return _serviceConnection.KeeperServiceBinder.GetService ();
 
 			return null;
+		}
+
+		protected T GetServiceData<T>(string key, bool deleteData)
+		{
+			var service = GetKeeperDataService ();
+			T serviceData = default(T);
+
+			var dataContext = service.GetInfo (key);
+			if (dataContext != null)
+			{
+				try
+				{
+					serviceData = (T)dataContext.Data;
+				}
+				catch
+				{
+					
+				}
+			}
+
+			if(deleteData)
+				DeleteDataFromStorage (key);
+			
+			return serviceData;
 		}
 		#endregion
 	}

@@ -112,7 +112,6 @@ namespace KeeperData
 				_info.Remove(key);
 			}
 		}
-
 	}
 }
 

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffc400">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/llOrderNum">
+        <TextView
+            android:text="Порядковый номер:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="274dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView1"
+            android:gravity="center" />
+        <TextView
+            android:text="№"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/txtOrdNum"
+            android:gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dp"
+        android:id="@+id/llSignReg">
+        <TextView
+            android:text="Позывной:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="274dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView2"
+            android:gravity="center" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/dfSign" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dp"
+        android:id="@+id/llGliderInfoReg">
+        <TextView
+            android:text="Крыло:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="274dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textViewGlider"
+            android:gravity="center" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/dfGlider" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/llLevel">
+        <TextView
+            android:text="Квалификация:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="274dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView8"
+            android:gravity="center" />
+        <Spinner
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/spnRegLevel"
+            android:textAlignment="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/linearLayout2">
+        <TextView
+            android:text="Телефон:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="274dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView3"
+            android:gravity="center" />
+        <EditText
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/dfPhoneNum"
+            android:gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/llRent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:id="@+id/llRentLeft">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/linearLayout3">
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cbRentGlider"
+                    android:gravity="center"
+                    android:text="Аренда крыла/подвески" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/linearLayout4">
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cbRentRadio"
+                    android:gravity="center"
+                    android:text="Аренда рации" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:id="@+id/llRentRight">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/linearLayout5">
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cbRentFixer"
+                    android:gravity="center"
+                    android:text="Аренда отцепки"
+                    android:layout_marginLeft="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/linearLayout6">
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cbRentTandem"
+                    android:gravity="center"
+                    android:text="Аренда тандема"
+                    android:layout_marginLeft="25dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/llRegPilotTBar">
+        <Button
+            android:text="Зарегистрироваться"
+            android:layout_width="216.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btnRegisterPilot"
+            android:background="#ffff9100" />
+        <Button
+            android:text="Отмена"
+            android:layout_width="216.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btnCancelReg"
+            android:background="#ffff9100"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -97,6 +97,7 @@ namespace StartWorkplace
 
 			SaveDataToStorage (DataKeeperKeys.SELECTED_WINCH_TEAM, WorkingContext);
 			var intent = new Intent(this, typeof(StartDayActivity));
+			intent.PutExtra (CREATOR_BUNDLE_KEY, DataKeeperKeys.SELECTED_WINCH_TEAM);
 			StartActivity(intent);
 		}
 

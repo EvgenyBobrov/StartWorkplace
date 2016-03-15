@@ -19,7 +19,7 @@ namespace StartWorkplace
 	public class SelectStartWorkerActivity : KeepingDataContextActivity
 	{
 		private Spinner _spnEmploee;
-		private Spinner _spnPosition	;
+		private Spinner _spnPosition;
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -74,21 +74,22 @@ namespace StartWorkplace
 			var emploee = _dataAccessor.GetEmploees ()
 				.Where (w => w.CallSing == _spnEmploee.SelectedItem.ToString()).FirstOrDefault ();
 
-			var starterPosition = DictionaryExtensions
-				.GetStarterPositionByName(_spnPosition.SelectedItem.ToString());
-					
-			if (emploee == null)
+			if (emploee == null || string.IsNullOrEmpty(_spnPosition.SelectedItem.ToString()))
 			{
 				var errorText = FindViewById<TextView>(Resource.Id.textErrorAddStarter);
 				errorText.Text = "Сотрудник и должность должны быть выбраны!";
 				return;
 			}
+			var starterPosition = DictionaryExtensions
+				.GetStarterPositionByName(_spnPosition.SelectedItem.ToString());
+
 			var startWorker = new StartWorker (){ Emploee = emploee, Position = starterPosition };
 
 			WorkingContext.Data = startWorker;
 
 			SaveDataToStorage (DataKeeperKeys.ADDED_STARTER_WORKER, WorkingContext);
 			var intent = new Intent(this, typeof(StartDayActivity));
+			intent.PutExtra (CREATOR_BUNDLE_KEY, DataKeeperKeys.ADDED_STARTER_WORKER);
 			StartActivity(intent);
 		}
 
