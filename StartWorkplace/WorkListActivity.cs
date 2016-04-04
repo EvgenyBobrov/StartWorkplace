@@ -38,16 +38,16 @@ namespace StartWorkplace
 			SetContentView (Resource.Layout.WorkingList);
 
 			_paradromField = FindViewById<TextView> (Resource.Id.txtWorkListParadrom);
-			_paradromField.TextSize = 24;
+			//_paradromField.TextSize = 24;
 
 			_flightMasterField = FindViewById<TextView> (Resource.Id.txtxWorkListFM);
-			_flightMasterField.TextSize = 24;
+			//_flightMasterField.TextSize = 24;
 
 			_frequencyField = FindViewById<TextView> (Resource.Id.txtWorkListFreq);
-			_frequencyField.TextSize = 24;
+			//_frequencyField.TextSize = 24;
 
 			_flightDataField = FindViewById<TextView> (Resource.Id.txtWorkListData);
-			_flightDataField.TextSize = 24;
+			//_flightDataField.TextSize = 24;
 
 			_pilotList = FindViewById<ListView> (Resource.Id.lvPilotTable);
 
@@ -168,28 +168,28 @@ namespace StartWorkplace
 
 		protected override void SetView ()
 		{
-			var llWorkListMain = FindViewById<LinearLayout> (Resource.Id.llWorkListMain);
-			var llTabLayout = FindViewById<LinearLayout> (Resource.Id.llWorkListTab);
-			var llWorkList = FindViewById<LinearLayout> (Resource.Id.llWorkList);
-			var llWorkListTbar = FindViewById<LinearLayout> (Resource.Id.llWorkListTBar);
-
-			var llheight = llWorkListMain.Height / 10;
-			llTabLayout.LayoutParameters = 
-				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight);
-			llWorkList.LayoutParameters = 
-				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight * 8);
-			llWorkListTbar.LayoutParameters = 
-				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight);
-
+//			var llWorkListMain = FindViewById<LinearLayout> (Resource.Id.llWorkListMain);
+//			var llTabLayout = FindViewById<LinearLayout> (Resource.Id.llWorkListTab);
+//			var llWorkList = FindViewById<LinearLayout> (Resource.Id.llWorkList);
+//			var llWorkListTbar = FindViewById<LinearLayout> (Resource.Id.llWorkListTBar);
+//
+//			var llheight = llWorkListMain.Height / 10;
+//			llTabLayout.LayoutParameters = 
+//				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight);
+//			llWorkList.LayoutParameters = 
+//				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight * 8);
+//			llWorkListTbar.LayoutParameters = 
+//				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight);
+//
 			var btnPilots = FindViewById<Button> (Resource.Id.btnPilotList);
 			var btnTandems = FindViewById<Button> (Resource.Id.btnTandemList);
 			var btnCadets = FindViewById<Button> (Resource.Id.btnCadetList);
-
-			var buttonWidth = (llTabLayout.Width - 4) / 3;
-			btnPilots.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
-			btnTandems.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
-			btnCadets.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
-
+//
+//			var buttonWidth = (llTabLayout.Width - 4) / 3;
+//			btnPilots.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
+//			btnTandems.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
+//			btnCadets.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
+//
 			#region Отрисовка вкладок
 			var llPilotList = FindViewById<LinearLayout> (Resource.Id.llPilotList);
 			var llTandemList = FindViewById<LinearLayout> (Resource.Id.llTandemList);
@@ -207,8 +207,8 @@ namespace StartWorkplace
 				llPilotList.Visibility = ViewStates.Visible;
 				llTandemList.Visibility = ViewStates.Invisible;
 
-				llPilotList.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, llWorkList.Height);
-				llTandemList.LayoutParameters = new LinearLayout.LayoutParams (0, 0);
+//				llPilotList.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, llWorkList.Height);
+//				llTandemList.LayoutParameters = new LinearLayout.LayoutParams (0, 0);
 
 				btnReport.Visibility = ViewStates.Visible;
 				btnReport.Text = "Отчет по пилоту";
@@ -233,8 +233,8 @@ namespace StartWorkplace
 
 				llTandemList.Visibility = ViewStates.Visible;
 				llPilotList.Visibility = ViewStates.Invisible;
-				llTandemList.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, llWorkList.Height);
-				llPilotList.LayoutParameters = new LinearLayout.LayoutParams (0, 0);
+//				llTandemList.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, llWorkList.Height);
+//				llPilotList.LayoutParameters = new LinearLayout.LayoutParams (0, 0);
 				btnReport.Visibility = ViewStates.Invisible;
 /*
 				llTandemTable.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, tableHeight);

@@ -17,20 +17,26 @@
         <TextView
             android:text="Лебёдка"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="140.0dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/textWinchName" />
-        <TextView
-            android:text="Сотрудник"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="140.0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/textWinchEmploee" />
+            android:id="@+id/textWinchName"
+            android:layout_weight="1"
+            android:textSize="24dp" />
         <TextView
             android:text="Должность"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="140.0dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/textWinchPosition" />
+            android:id="@+id/textWinchPosition"
+            android:layout_weight="1"
+            android:textSize="24dp" />
+        <TextView
+            android:text="Сотрудник"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textWinchEmploee"
+            android:layout_weight="1"
+            android:textSize="24dp" />
     </LinearLayout>
 </RelativeLayout>

@@ -14,14 +14,18 @@
         <TextView
             android:text="Сотрудник"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:id="@+id/textStarterEmploee"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_weight="1" />
         <TextView
-            android:text="Large Text"
+            android:text="Должность"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/textStarterPosition" />
+            android:id="@+id/textStarterPosition"
+            android:textSize="24dp"
+            android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

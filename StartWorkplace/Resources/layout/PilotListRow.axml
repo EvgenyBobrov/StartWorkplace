@@ -11,31 +11,37 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/llPilotListRow">
+        android:layout_height="wrap_content"
+        android:id="@+id/llPilotListRow"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
         <TextView
             android:text="№"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtPilotNum" />
+            android:id="@+id/txtPilotNum"
+            android:layout_weight="1" />
         <TextView
             android:text="Позывной"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtPilotSign" />
+            android:id="@+id/txtPilotSign"
+            android:layout_weight="3" />
         <TextView
             android:text="Крыло"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtPilotGlider" />
+            android:id="@+id/txtPilotGlider"
+            android:layout_weight="2" />
         <TextView
             android:text="Статус"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtPilotStatus" />
+            android:id="@+id/txtPilotStatus"
+            android:layout_weight="2" />
     </LinearLayout>
 </RelativeLayout>

@@ -255,7 +255,7 @@ namespace StartWorkplace
 			}
 		}
 
-		protected override void SetView()
+/*		protected override void SetView()
 		{
 			
 			var layoutWidth = _headerLayout.Width;
@@ -273,7 +273,7 @@ namespace StartWorkplace
 					new LinearLayout.LayoutParams(260, _headerLayout.Height) ;
 				_frequencyField.TextSize = 24;
 			}
-		}
+		}*/
 
 		protected override WorkingContext LoadWorkingContext ()
 		{

@@ -19,6 +19,7 @@ namespace StartWorkplace
 	public class RegisterPilotActivity : KeepingDataContextActivity
 	{
 		private Spinner _lvQualification;
+		private Spinner _lvWeight;
 
 		private int currentStartNum = 0;
 
@@ -33,15 +34,26 @@ namespace StartWorkplace
 			var qualificationList =  new List<string> () { "" };
 			qualificationList.Add (PilotQualificationEnum.Newer.GetPilotQualificationName());
 			qualificationList.Add (PilotQualificationEnum.Skilled.GetPilotQualificationName());
-
-			var curNumView = FindViewById<TextView> (Resource.Id.txtOrdNum);
-			curNumView.Text = string.Format("№  {0}", currentStartNum.ToString());
-			curNumView.TextSize = 24;
-
 			var qualificationAdapter = new ArrayAdapter<string> (this, 
 				Resource.Layout.SimpleListRow, 
 				qualificationList.ToArray());
 			_lvQualification.Adapter = qualificationAdapter;
+
+
+			_lvWeight = FindViewById<Spinner> (Resource.Id.spnRegWeight);
+			var weightList =  new List<string> () { "" };
+			weightList.Add (EnumPilotWeight.UltraLight.GetPilotWeightName());
+			weightList.Add (EnumPilotWeight.Light.GetPilotWeightName());
+			weightList.Add (EnumPilotWeight.Medium.GetPilotWeightName());
+			weightList.Add (EnumPilotWeight.Heavy.GetPilotWeightName());
+			weightList.Add (EnumPilotWeight.UltraHeavy.GetPilotWeightName());
+			var weightAdapter = new ArrayAdapter<string> (this, 
+				Resource.Layout.SimpleListRow, 
+				weightList.ToArray());
+			_lvWeight.Adapter = weightAdapter;
+
+			var curNumView = FindViewById<TextView> (Resource.Id.txtOrdNum);
+			curNumView.Text = string.Format("№  {0}", currentStartNum.ToString());
 
 			var btnRegister = FindViewById<Button> (Resource.Id.btnRegisterPilot);
 			btnRegister.TextSize = 24;
@@ -68,6 +80,7 @@ namespace StartWorkplace
 				GliderInfo = FindViewById<EditText>(Resource.Id.dfGlider).Text,
 				Qualification = 
 					DictionaryExtensions.GetPilotQualificationByName(_lvQualification.SelectedItem.ToString()),
+				Weight = DictionaryExtensions.GetPilotWeightByName(_lvWeight.SelectedItem.ToString()),
 				RentFixer = FindViewById<CheckBox>(Resource.Id.cbRentFixer).Checked,
 				RentGlider = FindViewById<CheckBox>(Resource.Id.cbRentGlider).Checked,
 				RentRadio  = FindViewById<CheckBox>(Resource.Id.cbRentRadio).Checked,

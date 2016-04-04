@@ -65,8 +65,10 @@ namespace StartWorkplace
 		{
 			var selectNovoe = FindViewById<Button> (Resource.Id.btnSelectNovoe);
 			selectNovoe.Enabled = false;
+			_infoNovoe.Text = "Полёты не объявлены";
 			var selectKonchinka = FindViewById<Button> (Resource.Id.btnSelectKonchinka);
 			selectKonchinka.Enabled = false;
+			_infoKonchinka.Text = "Полёты не объявлены";
 
 			if (!string.IsNullOrEmpty (_dataAccessor.GetErrorMessage ()))
 			{
@@ -92,9 +94,10 @@ namespace StartWorkplace
 					_selectedScheduleItems.Add (flightScheduleItem);
 				}
 
+
 				if (flightScheduleItem.Paradrom.EnumParadrom == EnumParadrom.Konchinka)
 				{
-					selectNovoe.Enabled = true;
+					selectKonchinka.Enabled = true;
 					_infoKonchinka.Text = "Объявлены полёты " + flightScheduleItem.FlightDate.ToString ("dd.MM.yyyy");
 					_selectedScheduleItems.Add (flightScheduleItem);
 				}
@@ -128,24 +131,6 @@ namespace StartWorkplace
 				StartActivity(intent);
 			}
 		}
-
-/*		protected override void SetView ()
-		{
-			var layoutMain = FindViewById<LinearLayout> (Resource.Id.layoutMain);
-			var textFlights = FindViewById<TextView> (Resource.Id.textFilghts);
-			var layoutNovoe = FindViewById<LinearLayout>(Resource.Id.layoutNovoe);
-			var layoutKonchinka = FindViewById<LinearLayout>(Resource.Id.layoutKonchinka);
-
-			if (layoutMain.Width > 0)
-			{
-				var totalHeight = (layoutMain.Height - textFlights.Height) / 3;
-				layoutNovoe.LayoutParameters = 
-				new LinearLayout.LayoutParams (layoutNovoe.Width, totalHeight);
-
-				layoutKonchinka.LayoutParameters = 
-				new LinearLayout.LayoutParams (layoutKonchinka.Width, totalHeight);
-			}
-		}*/
 	}
 }
 

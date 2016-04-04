@@ -7,8 +7,12 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:id="@+id/llOrderNum">
+        android:layout_height="0dp"
+        android:id="@+id/llOrderNum"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp">
         <TextView
             android:text="Порядковый номер:"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -22,54 +26,97 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/txtOrdNum"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textSize="24dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40.0dp"
-        android:id="@+id/llSignReg">
+        android:layout_height="0dp"
+        android:id="@+id/llSignReg"
+        android:layout_weight="1"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="4dp">
         <TextView
             android:text="Позывной:"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="274dp"
             android:layout_height="match_parent"
             android:id="@+id/textView2"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textSize="24dp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/dfSign" />
+            android:id="@+id/dfSign"
+            android:textSize="24dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40.0dp"
-        android:id="@+id/llGliderInfoReg">
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout2"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp">
+        <TextView
+            android:text="Телефон:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="274dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView3"
+            android:gravity="center"
+            android:textSize="24dp" />
+        <EditText
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/dfPhoneNum"
+            android:gravity="center"
+            android:textSize="24dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/llGliderInfoReg"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp">
         <TextView
             android:text="Крыло:"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="274dp"
             android:layout_height="match_parent"
             android:id="@+id/textViewGlider"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textSize="24dp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/dfGlider" />
+            android:id="@+id/dfGlider"
+            android:textSize="24dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/llLevel">
+        android:layout_height="0dp"
+        android:id="@+id/llLevel"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp">
         <TextView
             android:text="Квалификация:"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="274dp"
             android:layout_height="match_parent"
             android:id="@+id/textView8"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textSize="24dp" />
         <Spinner
             android:minWidth="25px"
             android:minHeight="25px"
@@ -81,107 +128,112 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/linearLayout2">
+        android:layout_height="0dp"
+        android:id="@+id/llWeight"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp">
         <TextView
-            android:text="Телефон:"
+            android:text="Вес:"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="274dp"
             android:layout_height="match_parent"
-            android:id="@+id/textView3"
-            android:gravity="center" />
-        <EditText
-            android:inputType="phone"
+            android:id="@+id/textView20"
+            android:gravity="center"
+            android:textSize="24dp" />
+        <Spinner
+            android:minWidth="25px"
+            android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/dfPhoneNum"
-            android:gravity="center" />
+            android:id="@+id/spnRegWeight"
+            android:textAlignment="center" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:id="@+id/llRent">
+        android:layout_height="0dp"
+        android:id="@+id/llRent"
+        android:layout_weight="2"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp">
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="250dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/llRentLeft">
-            <LinearLayout
-                android:orientation="horizontal"
+            android:id="@+id/llRentLeft"
+            android:layout_weight="1">
+            <CheckBox
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/linearLayout3">
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/cbRentGlider"
-                    android:gravity="center"
-                    android:text="Аренда крыла/подвески" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
+                android:layout_height="0dp"
+                android:id="@+id/cbRentGlider"
+                android:gravity="center"
+                android:text="Аренда крыла/подвески"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:textSize="24dp" />
+            <CheckBox
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/linearLayout4">
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/cbRentRadio"
-                    android:gravity="center"
-                    android:text="Аренда рации" />
-            </LinearLayout>
+                android:layout_height="0dp"
+                android:id="@+id/cbRentRadio"
+                android:gravity="center"
+                android:text="Аренда рации"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:textSize="24dp" />
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="250dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/llRentRight">
-            <LinearLayout
-                android:orientation="horizontal"
+            android:id="@+id/llRentRight"
+            android:layout_weight="1">
+            <CheckBox
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/linearLayout5">
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/cbRentFixer"
-                    android:gravity="center"
-                    android:text="Аренда отцепки"
-                    android:layout_marginLeft="25dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
+                android:layout_height="0dp"
+                android:id="@+id/cbRentFixer"
+                android:gravity="center"
+                android:text="Аренда отцепки"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:textSize="24dp" />
+            <CheckBox
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/linearLayout6">
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/cbRentTandem"
-                    android:gravity="center"
-                    android:text="Аренда тандема"
-                    android:layout_marginLeft="25dp" />
-            </LinearLayout>
+                android:layout_height="0dp"
+                android:id="@+id/cbRentTandem"
+                android:gravity="center"
+                android:text="Аренда тандема"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:textSize="24dp" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/llRegPilotTBar">
+        android:layout_height="0dp"
+        android:id="@+id/llRegPilotTBar"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="2dp">
         <Button
             android:text="Зарегистрироваться"
-            android:layout_width="216.0dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/btnRegisterPilot"
-            android:background="#ffff9100" />
+            android:background="#ffff9100"
+            android:layout_weight="1" />
         <Button
             android:text="Отмена"
-            android:layout_width="216.0dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/btnCancelReg"
             android:background="#ffff9100"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>
