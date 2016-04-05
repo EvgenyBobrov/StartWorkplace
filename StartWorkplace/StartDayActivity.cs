@@ -18,6 +18,9 @@ namespace StartWorkplace
 	[Activity (Label = "Начать рабочий день")]			
 	public class StartDayActivity : KeepingDataContextActivity
 	{
+		private const string ADD_START_WORKER_CARD_TAG = "add_start_worker";
+		private const string ADD_WINCH_CARD_TAG = "add_winch_command";
+
 		private TextView _flightField = null;
 		private TextView _dataField = null;
 		private TextView _frequencyText = null;
@@ -30,6 +33,7 @@ namespace StartWorkplace
 		private WorkingDay _formContext = null;
 
 		#region Методы формы
+
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -83,10 +87,7 @@ namespace StartWorkplace
 
 			buttonAddWinch.Click += delegate
 			{
-				SaveDataToStorage (DataKeeperKeys.SELECTED_TEAM, WorkingContext);
-
-				var intent = new Intent(this, typeof(SelectWinchCommandActivity));
-				StartActivity(intent);
+				OnClickAddWinch();
 			};
 
 			buttonDelWinch.Click += delegate 
@@ -98,10 +99,7 @@ namespace StartWorkplace
 			var buttonDelStarter = FindViewById<ImageButton>(Resource.Id.btnStarterDel);
 			buttonAddStarter.Click += delegate
 			{
-				SaveDataToStorage (DataKeeperKeys.SELECTED_TEAM, WorkingContext);
-
-				var intent = new Intent(this, typeof(SelectStartWorkerActivity));
-				StartActivity(intent);
+				OnClickAddStartWorker();
 			};
 
 			buttonDelStarter.Click += delegate 
@@ -364,6 +362,44 @@ namespace StartWorkplace
 			intent.PutExtra (CREATOR_BUNDLE_KEY, DataKeeperKeys.CURRENT_WORK_DAY);
 			StartActivity(intent);
 
+		}
+
+		private void OnClickAddWinch()
+		{
+			SaveDataToStorage (DataKeeperKeys.SELECTED_TEAM, WorkingContext);
+
+			var registerDialog = new SelectWinchCommandDialog ();
+			registerDialog.Registred += FinishAddWinch;
+			var ft = GetFragmentTransaction(ADD_WINCH_CARD_TAG);
+			registerDialog.Show (ft, ADD_WINCH_CARD_TAG);
+		}
+
+		public void FinishAddWinch (object sender, WinchCommandArgs args)
+		{
+			if (args.WinchCommand != null && _formContext != null)
+			{
+				_formContext.WinchCommands.Add (args.WinchCommand);
+				ShowData();
+			}
+		}
+
+		private void OnClickAddStartWorker()
+		{
+			SaveDataToStorage (DataKeeperKeys.SELECTED_TEAM, WorkingContext);
+
+			var registerDialog = new SelectStartWorkerDialog ();
+			registerDialog.Registred += FinishAddStartWorker;
+			var ft = GetFragmentTransaction(ADD_START_WORKER_CARD_TAG);
+			registerDialog.Show (ft, ADD_START_WORKER_CARD_TAG);
+		}
+
+		public void FinishAddStartWorker (object sender, StartEmploeeArgs args)
+		{
+			if (args.StartWorker != null && _formContext != null)
+			{
+				_formContext.StartCommand.Add (args.StartWorker);
+				ShowData();
+			}
 		}
 
 		#endregion

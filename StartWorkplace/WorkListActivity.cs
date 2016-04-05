@@ -19,6 +19,7 @@ namespace StartWorkplace
 		private const string PILOTS_TAB = "Пилоты";
 		private const string TANDEMS_TAB = "Тандемы";
 		private const string CADET_TAB = "Курсанты";
+		private const string REGISTER_PILOT_CARD_TAG = "RegisterPilot";
 
 		private string CurrentTab = PILOTS_TAB;
 
@@ -38,16 +39,12 @@ namespace StartWorkplace
 			SetContentView (Resource.Layout.WorkingList);
 
 			_paradromField = FindViewById<TextView> (Resource.Id.txtWorkListParadrom);
-			//_paradromField.TextSize = 24;
 
 			_flightMasterField = FindViewById<TextView> (Resource.Id.txtxWorkListFM);
-			//_flightMasterField.TextSize = 24;
 
 			_frequencyField = FindViewById<TextView> (Resource.Id.txtWorkListFreq);
-			//_frequencyField.TextSize = 24;
 
 			_flightDataField = FindViewById<TextView> (Resource.Id.txtWorkListData);
-			//_flightDataField.TextSize = 24;
 
 			_pilotList = FindViewById<ListView> (Resource.Id.lvPilotTable);
 
@@ -82,17 +79,6 @@ namespace StartWorkplace
 
 			if (service != null)
 			{
-/*				var startContext = service.GetInfo (DataKeeperKeys.CURRENT_WORK_DAY);
-				if (startContext != null)
-				{
-					var workingDay = startContext.Data as WorkingDay;
-					if (workingDay != null)
-					{
-						_formContext = workingDay;
-					}
-
-				}*/
-
 				var workingDay = GetServiceData<WorkingDay> (DataKeeperKeys.CURRENT_WORK_DAY, false);
 				if (workingDay != null)
 				{
@@ -168,36 +154,15 @@ namespace StartWorkplace
 
 		protected override void SetView ()
 		{
-//			var llWorkListMain = FindViewById<LinearLayout> (Resource.Id.llWorkListMain);
-//			var llTabLayout = FindViewById<LinearLayout> (Resource.Id.llWorkListTab);
-//			var llWorkList = FindViewById<LinearLayout> (Resource.Id.llWorkList);
-//			var llWorkListTbar = FindViewById<LinearLayout> (Resource.Id.llWorkListTBar);
-//
-//			var llheight = llWorkListMain.Height / 10;
-//			llTabLayout.LayoutParameters = 
-//				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight);
-//			llWorkList.LayoutParameters = 
-//				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight * 8);
-//			llWorkListTbar.LayoutParameters = 
-//				new LinearLayout.LayoutParams (llWorkListMain.Width, llheight);
-//
 			var btnPilots = FindViewById<Button> (Resource.Id.btnPilotList);
 			var btnTandems = FindViewById<Button> (Resource.Id.btnTandemList);
 			var btnCadets = FindViewById<Button> (Resource.Id.btnCadetList);
-//
-//			var buttonWidth = (llTabLayout.Width - 4) / 3;
-//			btnPilots.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
-//			btnTandems.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
-//			btnCadets.LayoutParameters = new LinearLayout.LayoutParams (buttonWidth, llTabLayout.Height);
-//
+
 			#region Отрисовка вкладок
 			var llPilotList = FindViewById<LinearLayout> (Resource.Id.llPilotList);
 			var llTandemList = FindViewById<LinearLayout> (Resource.Id.llTandemList);
 			var btnRegister = FindViewById<Button> (Resource.Id.btnRegister);
 			var btnReport = FindViewById<Button> (Resource.Id.btnReport);
-
-			//int tableHeight = (int)(llWorkList.Height * 0.8);
-			//int tBarHeight = (int)(llWorkList.Height * 0.2);
 
 			if (CurrentTab == PILOTS_TAB)
 			{
@@ -207,24 +172,8 @@ namespace StartWorkplace
 				llPilotList.Visibility = ViewStates.Visible;
 				llTandemList.Visibility = ViewStates.Invisible;
 
-//				llPilotList.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, llWorkList.Height);
-//				llTandemList.LayoutParameters = new LinearLayout.LayoutParams (0, 0);
-
 				btnReport.Visibility = ViewStates.Visible;
 				btnReport.Text = "Отчет по пилоту";
-/*
-				llPilotTable.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, tableHeight);
-
-				var btnRegPilot = FindViewById<Button> (Resource.Id.btnRegPilot);
-				var btnPilotReport = FindViewById<Button> (Resource.Id.btnPilotReport);
-
-				buttonWidth = (llPilotTBar.Width / 2) - 4;
-				btnRegPilot.LayoutParameters = 
-					new LinearLayout.LayoutParams (buttonWidth, llPilotTBar.Height);
-				btnPilotReport.LayoutParameters = 
-					new LinearLayout.LayoutParams (buttonWidth, llPilotTBar.Height);
-				
-*/
 			}
 			else if (CurrentTab == TANDEMS_TAB)
 			{
@@ -233,13 +182,7 @@ namespace StartWorkplace
 
 				llTandemList.Visibility = ViewStates.Visible;
 				llPilotList.Visibility = ViewStates.Invisible;
-//				llTandemList.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, llWorkList.Height);
-//				llPilotList.LayoutParameters = new LinearLayout.LayoutParams (0, 0);
 				btnReport.Visibility = ViewStates.Invisible;
-/*
-				llTandemTable.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, tableHeight);
-				llTandemTBar.LayoutParameters = new LinearLayout.LayoutParams (llWorkList.Width, tBarHeight);
-				*/
 			}
 
 			#endregion
@@ -278,18 +221,27 @@ namespace StartWorkplace
 		{
 			SaveDataToStorage (DataKeeperKeys.CURRENT_WORK_DAY, WorkingContext);
 
-			var currentStartNum = _formContext.Pilots.Count == 0 ? 1 
-				: _formContext.Pilots.Max (p => p.StartNumber) + 1;
-			
 			if (CurrentTab == PILOTS_TAB)
 			{
-				var intent = new Intent (this, typeof(RegisterPilotActivity));
-				intent.PutExtra (DataKeeperKeys.CURRENT_START_NUMBER, currentStartNum);
-
-				StartActivity (intent);
+				var currentStartNum = _formContext.Pilots.Count == 0 ? 1 
+					: _formContext.Pilots.Max (p => p.StartNumber) + 1;
+				
+				var registerDialog = new RegisterPilotDialog (currentStartNum);
+				registerDialog.Registred += FinishRegistration;
+				var ft = GetFragmentTransaction(REGISTER_PILOT_CARD_TAG);
+				registerDialog.Show (ft, REGISTER_PILOT_CARD_TAG);
 			}
 		}
 
+		public void FinishRegistration (object sender, RegisterPilotArgs args)
+		{
+			if (args.PilotOnStart != null && _formContext != null)
+			{
+				_formContext.Pilots.Add (args.PilotOnStart);
+				_dataAccessor.SaveWorkingDay (_formContext);
+				ShowData();
+			}
+		}
 		#endregion
 	}
 }

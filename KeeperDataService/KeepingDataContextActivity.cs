@@ -215,6 +215,20 @@ namespace KeeperData
 			
 			return serviceData;
 		}
+
+		protected FragmentTransaction GetFragmentTransaction (string tag)
+		{
+			FragmentTransaction ft = FragmentManager.BeginTransaction();
+			//Remove fragment else it will crash as it is already added to backstack
+			Fragment prev = FragmentManager.FindFragmentByTag(tag);
+			if (prev != null) {
+				ft.Remove(prev);
+			}
+
+			ft.AddToBackStack(null);
+			//ft.Commit ();
+			return ft;
+		}
 		#endregion
 	}
 }

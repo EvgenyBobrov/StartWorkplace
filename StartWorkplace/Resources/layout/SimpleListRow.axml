@@ -7,4 +7,4 @@
     android:id="@+id/textListRow"
     android:textAlignment="center"
     android:textSize="20dp"
-    android:gravity="center" />
+    android:gravity="center_horizontal" />

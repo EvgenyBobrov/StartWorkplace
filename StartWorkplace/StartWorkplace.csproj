@@ -52,8 +52,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartDayActivity.cs" />
     <Compile Include="DataKeeperKeys.cs" />
-    <Compile Include="SelectWinchCommandActivity.cs" />
-    <Compile Include="SelectStartWorkerActivity.cs" />
     <Compile Include="Controls\WinchTeamViewTableRow.cs" />
     <Compile Include="Controls\WinchTeamAdapter.cs" />
     <Compile Include="Controls\StartCommandAdapter.cs" />
@@ -61,7 +59,12 @@
     <Compile Include="WorkListActivity.cs" />
     <Compile Include="Controls\PilotListTableRow.cs" />
     <Compile Include="Controls\PilotTableAdapter.cs" />
-    <Compile Include="RegisterPilotActivity.cs" />
+    <Compile Include="Cards\RegisterPilotDialog.cs" />
+    <Compile Include="Cards\RegisterPilotArgs.cs" />
+    <Compile Include="Cards\StartEmploeeArgs.cs" />
+    <Compile Include="Cards\SelectStartWorkerDialog.cs" />
+    <Compile Include="Cards\SelectWinchCommandDialog.cs" />
+    <Compile Include="Cards\WinchCommandArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -98,6 +101,7 @@
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Controls\" />
+    <Folder Include="Cards\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
