@@ -45,6 +45,12 @@
     <Reference Include="VectorDataLayer">
       <HintPath>..\externals\VectorDataLayer.dll</HintPath>
     </Reference>
+    <Reference Include="VectorDictionary">
+      <HintPath>..\externals\VectorDictionary.dll</HintPath>
+    </Reference>
+    <Reference Include="VectorTools">
+      <HintPath>..\externals\VectorTools.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -97,11 +103,13 @@
     <AndroidResource Include="Resources\layout\WorkingList.axml" />
     <AndroidResource Include="Resources\layout\PilotListRow.axml" />
     <AndroidResource Include="Resources\layout\RegisterPilotForm.axml" />
+    <AndroidResource Include="Resources\layout\PilotReport.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Controls\" />
     <Folder Include="Cards\" />
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>

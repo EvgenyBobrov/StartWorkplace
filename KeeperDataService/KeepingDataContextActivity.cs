@@ -15,6 +15,7 @@ namespace KeeperData
 	public class KeepingDataContextActivity : Activity
 	{
 		protected const string CREATOR_BUNDLE_KEY = "ActivityCreator";
+		protected const string DATA_ACCESSOR_KEY = "DataAccessor";
 
 		#region Переменные класса
 		protected KeeperDataServiceConnection _serviceConnection;
