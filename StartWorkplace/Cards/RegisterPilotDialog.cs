@@ -98,7 +98,11 @@ namespace StartWorkplace
 
 		private void OnRegister()
 		{
-
+			var regNumTxt = _dialog.FindViewById<EditText> (Resource.Id.dfRegistryNum).Text;
+			int registryNum = -1;
+			if (!string.IsNullOrEmpty (regNumTxt))
+				int.TryParse (regNumTxt, out registryNum);
+			
 			var pilot = new PilotOnStart () 
 				{
 				GliderInfo = _dialog.FindViewById<EditText>(Resource.Id.dfGlider).Text,
@@ -111,6 +115,7 @@ namespace StartWorkplace
 				RentTandem = _dialog.FindViewById<CheckBox>(Resource.Id.cbRentTandem).Checked,
 				Sign = _dialog.FindViewById<EditText>(Resource.Id.dfSign).Text,
 				StartNumber = _currentStartNum,
+				RegistryNum = registryNum
 				};
 			Dismiss ();
 			if (Registred != null)
